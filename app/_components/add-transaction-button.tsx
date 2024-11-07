@@ -98,7 +98,7 @@ const AddTransactionButton = () => {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="max-h-screen overflow-y-scroll">
+      <DialogContent className="max-h-screen overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Adicionar Transação</DialogTitle>
           <DialogDescription>Insira as informações abaixo</DialogDescription>
