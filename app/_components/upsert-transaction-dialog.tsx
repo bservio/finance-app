@@ -97,6 +97,7 @@ const UpsertTransactionDialog = ({
   });
 
   const onSubmit = async (data: FormSchema) => {
+    console.log({ ...data, id: transactionId });
     try {
       await upsertTransaction({ ...data, id: transactionId });
       setIsOpen(false);
@@ -106,7 +107,7 @@ const UpsertTransactionDialog = ({
     }
   };
 
-  // const isUpdate = Boolean(transactionId);
+  const isUpdate = Boolean(transactionId);
 
   return (
     <Dialog
@@ -122,7 +123,9 @@ const UpsertTransactionDialog = ({
 
       <DialogContent className="max-h-screen overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Adicionar Transação</DialogTitle>
+          <DialogTitle>
+            {isUpdate ? "Editar" : "Adicionar"} Transação
+          </DialogTitle>
           <DialogDescription>Insira as informações abaixo</DialogDescription>
         </DialogHeader>
 
@@ -269,7 +272,9 @@ const UpsertTransactionDialog = ({
                   Cancelar
                 </Button>
               </DialogClose>
-              <Button type="submit">Adicionar</Button>
+              <Button type="submit">
+                {isUpdate ? "Atualizar" : "Adicionar"}
+              </Button>
             </DialogFooter>
           </form>
         </Form>

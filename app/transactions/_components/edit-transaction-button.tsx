@@ -31,6 +31,7 @@ const EditTransactionButton = ({ transaction }: EditTransactionButtonProps) => {
           ...transaction,
           amount: Number(transaction.amount),
         }}
+        transactionId={transaction.id}
       />
     </>
   );

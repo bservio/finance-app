@@ -22,7 +22,6 @@ interface UpsertTransactionParams {
 
 export const upsertTransaction = async (params: UpsertTransactionParams) => {
   upsertTransactionSchema.parse(params);
-  console.log("Transaction ID:", params.id);
   const { userId } = await auth();
   if (!userId) {
     throw new Error("Unauthorized");
@@ -30,7 +29,7 @@ export const upsertTransaction = async (params: UpsertTransactionParams) => {
 
   await db.transaction.upsert({
     where: {
-      id: params.id,
+      id: params.id ?? "",
     },
     update: { ...params, userId },
     create: { ...params, userId },
