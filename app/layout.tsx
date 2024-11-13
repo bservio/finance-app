@@ -26,7 +26,7 @@ export default function RootLayout({
             baseTheme: dark,
           }}
         >
-          {children}
+          <div className="flex h-full flex-col">{children}</div>
         </ClerkProvider>
       </body>
     </html>
